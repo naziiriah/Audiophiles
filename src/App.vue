@@ -1,9 +1,9 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div>
+    <router-view />
+    <Aside />
+    <Footer />
+  </div>
 </template>
 
 <style lang="scss">
@@ -14,17 +14,37 @@
   text-align: center;
   color: #2c3e50;
 }
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.container {
+  width: calc(100% - 20%);
+  margin: auto;
+}
+.btn__see__products--brown {
+  padding: 0rem 1rem;
+  height: 3rem;
+  color: #fff;
+  background-color: #d87d4a;
+  border: solid 2px transparent;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  &:hover {
+    background-color: #fbaf85;
   }
 }
 </style>
+
+<script>
+import Footer from "./components/Footer.vue";
+import Aside from "./components/Aside.vue";
+
+export default {
+  name: "App",
+  components: {
+    Footer,
+    Aside,
+  },
+};
+</script>
