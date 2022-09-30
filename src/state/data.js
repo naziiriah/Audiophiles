@@ -90,8 +90,8 @@ const DB = [
     ],
     gallery: {
       first: {
-        mobile: ".//assets/product-yx1-earphones/mobile/image-gallery-1.jpg",
-        tablet: ".//assets/product-yx1-earphones/tablet/image-gallery-1.jpg",
+        mobile: "../assets/product-yx1-earphones/mobile/image-gallery-1.jpg",
+        tablet: "../assets/product-yx1-earphones/tablet/image-gallery-1.jpg",
         desktop: firstGalYx1Desktop,
       },
       second: {
@@ -100,8 +100,10 @@ const DB = [
         desktop: secondGalYx1Desktop,
       },
       third: {
-        mobile: ".//assets/product-yx1-earphones/mobile/image-gallery-3.jpg",
-        tablet: ".//assets/product-yx1-earphones/tablet/image-gallery-3.jpg",
+        mobile: "../assets/product-yx1-earphones/mobile/image-gallery-3.jpg",
+        tablet: import(
+          "../assets/product-yx1-earphones/tablet/image-gallery-3.jpg"
+        ),
         desktop: thirdGalYx1Desktop,
       },
     },

@@ -1,7 +1,6 @@
 <template>
   <div>
     <router-view />
-    <Aside />
     <Footer />
   </div>
 </template>
@@ -38,13 +37,11 @@
 
 <script>
 import Footer from "./components/Footer.vue";
-import Aside from "./components/Aside.vue";
 
 export default {
   name: "App",
   components: {
     Footer,
-    Aside,
   },
 };
 </script>

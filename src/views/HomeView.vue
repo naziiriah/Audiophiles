@@ -46,17 +46,20 @@
       <div class="section__3--img"></div>
       <div class="section__3--content"></div>
     </section>
+    <Aside />
   </main>
 </template>
 
 <script>
 import Header from "../components/Header.vue";
 import NavAside from "../components/NavAside.vue";
+import Aside from "@/components/Aside.vue";
 export default {
   name: "HomeView",
   components: {
     Header,
     NavAside,
+    Aside,
   },
 };
 </script>

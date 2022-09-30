@@ -3,6 +3,8 @@ import HomeView from "../views/HomeView.vue";
 import Headphone from "../views/Headphone.vue";
 import Speaker from "../views/Speaker.vue";
 import ProductFile from "../views/Product.vue";
+import Checkout from "../views/Checkout.vue";
+
 const routes = [
   {
     path: "/",
@@ -29,9 +31,14 @@ const routes = [
     component: Speaker,
   },
   {
-    path: "/:category/:slug",
+    path: "/product/:slug",
     name: "ProductFile",
     component: ProductFile,
+  },
+  {
+    path: "/checkout",
+    name: "Checkout",
+    component: Checkout,
   },
 ];
 

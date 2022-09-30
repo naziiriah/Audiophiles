@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     toLink() {
-      this.$router.push(`/${this.state.category}/${this.state.slug}`);
+      this.$router.push(`/product/${this.state.slug}`);
     },
   },
 };

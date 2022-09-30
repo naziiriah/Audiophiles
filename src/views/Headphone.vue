@@ -8,6 +8,7 @@
     <InnerSection :order="false" :state="File2" />
     <InnerSection :order="true" :state="File3" />
     <NavAside />
+    <Aside />
   </div>
 </template>
 
@@ -16,12 +17,13 @@ import Header from "@/components/Header.vue";
 import NavAside from "@/components/NavAside.vue";
 import InnerSection from "@/components/InnerSection.vue";
 import createStore from "../store/index";
+import Aside from "@/components/Aside.vue";
 
 const Store = createStore.state.Data;
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Headphone",
-  components: { Header, NavAside, InnerSection },
+  components: { Header, NavAside, InnerSection, Aside },
   setup() {
     const HeadphoneFile = Store.filter(
       (state) => state.category === "headphones"
