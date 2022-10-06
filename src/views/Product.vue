@@ -21,19 +21,16 @@
             &dollar; {{ state.price.toLocaleString("en-US") }}
           </h2>
           <div class="product__buttons">
-            <div class="product__update__value" @click="minusValue()">
-              <button class="product__update__value--add">
+            <div class="product__update__value">
+              <button class="product__update__value--add" @click="minusValue">
                 <i class="fa-solid fa-minus"></i>
               </button>
               <div class="product__update__value--content">{{ value }}</div>
-              <button class="product__update__value--add" @click="addValue()">
+              <button class="product__update__value--add" @click="addValue">
                 <i class="fa-solid fa-plus"></i>
               </button>
             </div>
-            <button
-              class="btn__see__products--brown"
-              @click="toLink('/checkout')"
-            >
+            <button class="btn__see__products--brown" @click="AddtoCart">
               add to cart
             </button>
           </div>
@@ -54,15 +51,6 @@
             <h1 class="product__section--h1">{{ include.quantity }} x</h1>
             <p class="product__section--p">{{ include.item }}</p>
           </div>
-        </div>
-      </section>
-      <section class="product__section--3">
-        <div class="product_gallery--phase--1">
-          <img class="product__gallery--image" alt="gallery.jpg" />
-          <img class="product__gallery--image" alt="gallery.jpg" />
-        </div>
-        <div class="product_gallery--phase--2">
-          <img :src="gallery.third" @click="checkImage" alt="gallery.jpg" />
         </div>
       </section>
       <section class="product__section--4">
@@ -121,30 +109,35 @@ export default {
     return {
       state,
       gallery: state.gallery,
-      value,
     };
+  },
+  data() {
+    return { value };
   },
   methods: {
     addValue() {
-      value.value = 10;
-      alert(value.value);
+      value.value = value.value + 1;
     },
     minusValue() {
-      if (value.value > 1) {
+      if (value.value >= 2) {
         value.value = value.value - 1;
       }
     },
     toLink(url) {
-      this.$router.push(url);
+      this.$router.go(-1);
       setTimeout(() => {
-        this.$router.go();
-      }, 400);
+        this.$router.push(url);
+      }, 10);
     },
     goBack() {
       this.$router.go(-1);
     },
-    checkImage() {
-      console.log(this.state.gallery.third);
+    AddtoCart() {
+      const props = {
+        ...this.state,
+        value: value.value,
+      };
+      createStore.dispatch("addToCart", props);
     },
   },
 };

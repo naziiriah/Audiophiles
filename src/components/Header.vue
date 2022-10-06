@@ -23,10 +23,34 @@
       <div class="modal__container">
         <div class="modal__header">
           <h3>cart({{ Cart.length }})</h3>
-          <h4>Remove all</h4>
+          <h4 @click="EmptyCart()">Remove all</h4>
         </div>
         <div class="modal__content">
-          <div class="modal__item"></div>
+          <div :key="item.id" class="modal__item" v-for="item in Cart">
+            <img
+              class="modal__item--img"
+              :src="item.image.desktop"
+              :alt="item.slug"
+            />
+            <div class="modal__item--identity">
+              <h1>{{ item.name.slice(0, 4) }}</h1>
+              <h3>&dollar; {{ item.price.toLocaleString("en-US") }}</h3>
+            </div>
+            <div class="modal__update">
+              <div
+                class="modal__calc"
+                @click="updateItemValue(item.id, 'minus')"
+              >
+                <i class="fa-solid fa-minus icon"></i>
+              </div>
+              <div class="modal__calc">
+                <h2>{{ item.value }}</h2>
+              </div>
+              <div class="modal__calc" @click="updateItemValue(item.id, 'add')">
+                <i class="fa-solid fa-plus icon"></i>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal__total">
           <h4>total</h4>
@@ -41,17 +65,27 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import createStore from "../store/index";
 let modal = ref(false);
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Header",
   setup() {
     const Cart = createStore.state.Cart;
+    let Total = ref(0);
+    watchEffect(() => {
+      const cart = createStore.state.Cart;
+      Total.value = Cart.map((state) => state.value * state.price).reduce(
+        (state, total) => total + state,
+        0
+      );
+      console.log(cart);
+    });
     return {
       Cart,
-      Total: 0,
+      Total,
     };
   },
   methods: {
@@ -61,6 +95,31 @@ export default {
     CheckoutButton() {
       this.$router.push("/checkout");
       modal.value = !modal.value;
+    },
+    EmptyCart() {
+      createStore.dispatch("emptyCart");
+    },
+    updateItemValue(id, type) {
+      const CurrentItem = this.Cart.find((state) => state.id === id);
+      if (type === "add") {
+        let pastValue = ref(CurrentItem.value);
+        pastValue.value = pastValue.value + 1;
+        const props = {
+          id: CurrentItem.id,
+          value: pastValue.value,
+        };
+        createStore.dispatch("addToCart", props);
+      } else if (type === "minus") {
+        let pastValue = ref(CurrentItem.value);
+        if (pastValue.value >= 2) {
+          pastValue.value = pastValue.value - 1;
+        }
+        const props = {
+          id: CurrentItem.id,
+          value: pastValue.value,
+        };
+        createStore.dispatch("addToCart", props);
+      }
     },
   },
   data() {
@@ -176,6 +235,7 @@ export default {
   .modal__content {
     width: 100%;
     min-height: 3rem;
+    margin: 2rem 0rem;
   }
   .modal__total {
     width: 100%;
@@ -197,6 +257,52 @@ export default {
       line-height: 25px;
       color: rgba(0, 0, 0, 0.518);
       cursor: pointer;
+    }
+  }
+  .modal__item {
+    width: 100%;
+    height: 4rem;
+    margin: 1rem 0rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .modal__item--img {
+    width: 4rem;
+  }
+  .modal__item--identity {
+    width: 8rem;
+    height: 100%;
+    h1 {
+      font-size: 15px;
+      line-height: 25px;
+      font-weight: bold;
+      text-align: start;
+      color: rgba(0, 0, 0);
+    }
+    h3 {
+      font-size: 14px;
+      line-height: 25px;
+      font-weight: bold;
+      text-align: start;
+      color: rgba(0, 0, 0, 0.363);
+    }
+  }
+  .modal__update {
+    width: 8rem;
+    height: 80%;
+    margin: 2% 0%;
+    background-color: #f2f3f3;
+    border-radius: 5px;
+    display: flex;
+  }
+  .modal__calc {
+    width: 33%;
+    height: 100%;
+    h2 {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 25px;
+      margin-top: 0.7rem;
     }
   }
   .modal__footer {
@@ -222,6 +328,14 @@ export default {
   }
   .modal__footer--none {
     display: none;
+  }
+  .icon {
+    margin: 1rem auto;
+    color: black;
+    cursor: pointer;
+    &:hover {
+      color: #d87d4a;
+    }
   }
 }
 </style>
