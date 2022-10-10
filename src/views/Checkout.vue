@@ -395,7 +395,7 @@ export default {
   }
   .checkout__aside {
     width: 30%;
-    min-height: 30rem;
+    height: 60rem;
     background-color: #fff;
     border-radius: 5px;
   }
@@ -433,10 +433,8 @@ export default {
   }
   .checkout__contains {
     width: 90%;
-    min-height: 10rem;
+    height: 100%;
     margin: auto;
-    background-color: #fff;
-    border-radius: 5px;
   }
   .checkout__form--section {
     width: 90%;
@@ -705,7 +703,8 @@ export default {
   }
   .checkout__summary--bill {
     width: 100%;
-    min-height: 4rem;
+    background-color: #fff;
+    height: 4rem;
     display: grid;
     gap: 1rem;
     grid-template-columns: 50% 45%;

@@ -98,6 +98,7 @@ export default {
     },
     EmptyCart() {
       createStore.dispatch("emptyCart");
+      this.$router.go();
     },
     updateItemValue(id, type) {
       const CurrentItem = this.Cart.find((state) => state.id === id);
@@ -669,7 +670,7 @@ export default {
   }
   .modal__content {
     width: 100%;
-    min-height: 2rem;
+    min-height: 3rem;
     margin: 2rem 0rem;
   }
   .modal__total {
