@@ -106,4 +106,122 @@ export default {
     margin-bottom: 3rem;
   }
 }
+@media screen and (max-width: 1100px) and (min-width: 600px) {
+  .properties__section {
+    width: 90%;
+    min-height: 30rem;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .properties__section--reverse {
+    width: 80%;
+    min-height: 30rem;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .properties___image {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 70%;
+      height: 100%;
+      border-radius: 5px;
+    }
+  }
+  .properties___content {
+    width: 100%;
+    height: 90%;
+    margin: 4% 0rem;
+    text-align: center;
+  }
+  .properties__new--true {
+    color: #d87e4ad3;
+    letter-spacing: 2px;
+    font-size: 14px;
+    line-height: 45px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .properties__new--false {
+    display: none;
+  }
+  .properties__name {
+    line-height: 44px;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1.43px;
+    width: 100%;
+    color: #000;
+    margin-bottom: 2rem;
+  }
+  .properties__description {
+    color: rgba(0, 0, 0, 0.678);
+    font-size: 15px;
+    line-height: 25px;
+    width: 90%;
+    margin-bottom: 3rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .properties__section {
+    width: 90%;
+    min-height: 30rem;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .properties__section--reverse {
+    width: 80%;
+    min-height: 30rem;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .properties___image {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 70%;
+      height: 100%;
+      border-radius: 5px;
+    }
+  }
+  .properties___content {
+    width: 100%;
+    height: 90%;
+    margin: 4% 0rem;
+    text-align: center;
+  }
+  .properties__new--true {
+    color: #d87e4ad3;
+    letter-spacing: 2px;
+    font-size: 14px;
+    line-height: 45px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .properties__new--false {
+    display: none;
+  }
+  .properties__name {
+    line-height: 44px;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1.43px;
+    width: 100%;
+    color: #000;
+    margin-bottom: 2rem;
+  }
+  .properties__description {
+    color: rgba(0, 0, 0, 0.678);
+    font-size: 15px;
+    line-height: 25px;
+    width: 90%;
+    margin-bottom: 3rem;
+  }
+}
 </style>

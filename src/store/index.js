@@ -17,7 +17,6 @@ export default createStore({
     },
     emptyCart(state) {
       state.Cart = [];
-      alert(state.Cart.length);
     },
     deletItem(state, props) {
       state.Cart = state.Cart.filter((state) => state.id !== props);

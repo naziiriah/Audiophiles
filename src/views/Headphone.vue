@@ -64,4 +64,38 @@ export default {
     }
   }
 }
+@media screen and (max-width: 1100px) and (min-width: 600px) {
+  .inner__page__header {
+    height: 15rem;
+    width: 100%;
+    background-color: #000;
+    h1 {
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      line-height: 44px;
+      margin-top: 4rem;
+      padding: 0px 1.43px;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .inner__page__header {
+    height: 10rem;
+    width: 100%;
+    background-color: #000;
+    h1 {
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 34px;
+      margin-top: 1rem;
+      padding: 0px 1.43px;
+    }
+  }
+}
 </style>

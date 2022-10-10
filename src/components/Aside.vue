@@ -4,7 +4,7 @@
       <div class="aside__content">
         <div class="aside__paragragh">
           <h3>
-            bringing you the <br />
+            bringing you the
             <span> best </span>audio gear
           </h3>
           <p>
@@ -66,6 +66,88 @@ export default {
     width: 40%;
     height: 30rem;
     background-image: url("../assets/shared/desktop/image-best-gear.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 1100px) {
+  .main__aside {
+    width: 100%;
+    min-height: 30rem;
+    margin: 4rem 0rem;
+  }
+  .aside__content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .aside__paragragh {
+    width: 100%;
+    margin: 5rem 0rem 0rem;
+    order: 2;
+    h3 {
+      font-size: 40px;
+      font-weight: bold;
+      color: #000;
+      text-transform: uppercase;
+      span {
+        color: #d87d4a;
+      }
+    }
+    p {
+      color: rgba(0, 0, 0, 0.7);
+      line-height: 24px;
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 2rem;
+    }
+  }
+  .aside__image {
+    width: 100%;
+    order: 1;
+    height: 20rem;
+    background-image: url("../assets/shared/tablet/image-best-gear.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .main__aside {
+    width: 100%;
+    min-height: 30rem;
+    margin: 4rem 0rem;
+  }
+  .aside__content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .aside__paragragh {
+    width: 100%;
+    margin: 5rem 0rem 0rem;
+    order: 2;
+    h3 {
+      font-size: 40px;
+      font-weight: bold;
+      color: #000;
+      text-transform: uppercase;
+      span {
+        color: #d87d4a;
+      }
+    }
+    p {
+      color: rgba(0, 0, 0, 0.7);
+      line-height: 24px;
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 2rem;
+    }
+  }
+  .aside__image {
+    width: 100%;
+    order: 1;
+    height: 20rem;
+    background-image: url("../assets/shared/mobile/image-best-gear.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
